@@ -170,3 +170,5 @@ map <Leader>d :bd<CR>
 map <Leader><Leader> :
 map <Leader>e :Sexplore<CR>
 map <Leader>h :noh<CR>
+
+set scrolloff=3
