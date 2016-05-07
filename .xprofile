@@ -1,0 +1,7 @@
+setxkbmap gb
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+numlockx &
+exec ~/.i3/i3lock-custom-startup &
+xset -dpms s off
+pulseaudio --start
+exec i3

@@ -1,0 +1,35 @@
+*background: #000000
+*foreground: #d8d8d8
+! Black (not tango) + DarkGrey
+*color0:  #181818
+*color8:  #585858
+! DarkRed + Red
+*color1:  #ab4642
+*color9:  #832a27
+! DarkGreen + Green
+*color2:  #a1b56c
+*color10: #89a244
+! DarkYellow + Yellow
+*color3:  #f7ca88
+*color11: #b98840
+! DarkBlue + Blue
+*color4:  #7cafc2
+*color12: #468197
+! DarkMagenta + Magenta
+*color5:  #ba8baf
+*color13: #925082
+!DarkCyan + Cyan 
+*color6:  #86c1b9
+*color14: #508a82
+! LightGrey + White
+*color7:  #d8d8d8
+*color15: #f8f8f8
+
+
+URxvt.depth: 32
+URxvt.background: [80]#000000
+!URxvt.visualBell: true
+URxvt.scrollBar: false
+
+URxvt*font: xft:DejaVu Sans Mono for Powerline:pixelsize=11:hinting=1:antialias=1
+URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:style=bold:pixelsize=11:hinting=1:antialias=1
