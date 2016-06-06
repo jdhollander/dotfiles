@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/jon/www/dev/views'
-let g:netrw_dirhist_2='/home/jon/www'
-let g:netrw_dirhist_3='/home/jon/www/kk-database'
-let g:netrw_dirhist_4='/etc/httpd'
-let g:netrw_dirhist_5='/etc/httpd/conf'

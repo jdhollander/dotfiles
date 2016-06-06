@@ -30,6 +30,11 @@ URxvt.depth: 32
 URxvt.background: [80]#000000
 !URxvt.visualBell: true
 URxvt.scrollBar: false
+URxvt.secondaryScreen: 1
 
 URxvt*font: xft:DejaVu Sans Mono for Powerline:pixelsize=11:hinting=1:antialias=1
 URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:style=bold:pixelsize=11:hinting=1:antialias=1
+URxvt.letterSpace: -1
+
+URxvt.internalBorder: 10
+!URxvt.borderColor: [60]#000000
