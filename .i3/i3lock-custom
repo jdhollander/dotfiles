@@ -23,9 +23,9 @@ if mpc status | grep playing; then
 fi
 
 scrot $IMAGE
-convert $IMAGE -sample 10% - | convert - -fill black -colorize 50% -scale 1000% $IMAGE
-composite -gravity center ~/.i3/lock-dual.png $IMAGE $IMAGE
-#convert $IMAGE -fill black -colorize 50% -blur $BLURTYPE - | composite -gravity center ~/.i3/lock-dual.png - $IMAGE
+#convert $IMAGE -sample 10% - | convert - -fill black -colorize 50% -scale 1000% $IMAGE
+#composite -gravity center ~/.i3/lock-dual.png $IMAGE $IMAGE
+convert $IMAGE -blur $BLURTYPE - | composite -gravity center ~/.i3/lock-dual.png - $IMAGE
 $(
 i3lock --textcolor=ffffff00 --insidecolor=ffffff1c --ringcolor=ffffff3e --linecolor=ffffff00 --keyhlcolor=00000080 --ringvercolor=00000000 --insidevercolor=0000001c --ringwrongcolor=00000055 --insidewrongcolor=0000001c  -i $IMAGE -n
 

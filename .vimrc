@@ -110,7 +110,7 @@ hi LineNr ctermfg=darkgrey
 
 
 let g:lightline = {
-      \ 'colorscheme': 'default',
+      \ 'colorscheme': 'jonscolors',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
