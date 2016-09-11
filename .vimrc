@@ -172,3 +172,5 @@ map <Leader>e :Sexplore<CR>
 map <Leader>h :noh<CR>
 
 set scrolloff=3
+
+execute pathogen#infect()

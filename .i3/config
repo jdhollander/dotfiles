@@ -223,3 +223,5 @@ bindsym $mod+Shift+w exec firefox -private-window
 for_window [class="firefox"] smart_gaps on
 
 bindsym Print exec ~/.i3/scrot
+
+bindsym $mod+p exec mpc toggle

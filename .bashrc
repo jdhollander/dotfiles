@@ -46,3 +46,7 @@ alias mpv-yt='mpv --ytdl-format "bestvideo[height=1080]+bestaudio/best" --save-p
 
 alias cd..='cd ..'
 alias ..='cd ..'
+
+alias duh='du -h --max-depth=1'
+
+alias bedtime='~/.i3/i3lock-custom && systemctl hibernate'
