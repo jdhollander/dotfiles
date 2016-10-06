@@ -50,3 +50,5 @@ alias ..='cd ..'
 alias duh='du -h --max-depth=1'
 
 alias bedtime='~/.i3/i3lock-custom && systemctl hibernate'
+
+alias sshlinode='ssh li272-49.members.linode.com'

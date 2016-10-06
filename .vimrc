@@ -173,4 +173,9 @@ map <Leader>h :noh<CR>
 
 set scrolloff=3
 
+set path+=**
+set wildmenu
+
+command! MakeTags !ctags -R . 
+
 execute pathogen#infect()
