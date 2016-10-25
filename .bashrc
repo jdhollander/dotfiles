@@ -42,7 +42,7 @@ please(){
 export EDITOR=vim
 export SUDO_EDITOR=vim
 
-alias mpv-yt='mpv --ytdl-format "bestvideo[height=1080]+bestaudio/best" --save-position-on-quit'
+alias mpv-yt='mpv --ytdl-format "bestvideo[height=1080]+bestaudio/best+protocol!=http_dash_segments" --save-position-on-quit'
 
 alias cd..='cd ..'
 alias ..='cd ..'

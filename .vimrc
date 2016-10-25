@@ -110,7 +110,6 @@ hi LineNr ctermfg=darkgrey
 
 
 let g:lightline = {
-      \ 'colorscheme': 'jonscolors',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
@@ -139,7 +138,6 @@ function! LightLineFugitive()
 endfunction
 
 set laststatus=2
-"set noshowmode
 
 autocmd FileType php setlocal makeprg=zca\ %<.php
 autocmd FileType php setlocal errorformat=%f(line\ %l):\ %m
@@ -151,9 +149,6 @@ vnoremap <C-c> "*y
 
 filetype plugin on
 set sc
-
-source ~/.vim/plugin/matchit.vim
-source ~/.vim/plugin/surround.vim
 
 let mapleader="\<Space>"
 
@@ -168,7 +163,7 @@ map <Leader>n :bn<CR>
 map <Leader>d :bd<CR>
 
 map <Leader><Leader> :
-map <Leader>e :Sexplore<CR>
+map <Leader>e :e.<CR>
 map <Leader>h :noh<CR>
 
 set scrolloff=3
@@ -176,6 +171,14 @@ set scrolloff=3
 set path+=**
 set wildmenu
 
+map <Leader>f :find 
+
 command! MakeTags !ctags -R . 
+
+let g:netrw_banner=0	"disable file browser banner
+let g:netrw_liststyle=3 "file browser uses tree view
+let g:netrw_list_hide=netrw_gitignore#Hide()
+
+map <Leader>b :ls<CR>
 
 execute pathogen#infect()
