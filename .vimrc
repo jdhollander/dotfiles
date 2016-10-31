@@ -45,7 +45,7 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab 
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab 
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -163,7 +163,7 @@ map <Leader>n :bn<CR>
 map <Leader>d :bd<CR>
 
 map <Leader><Leader> :
-map <Leader>e :e.<CR>
+map <Leader>e :Sexplore<CR>
 map <Leader>h :noh<CR>
 
 set scrolloff=3
@@ -180,5 +180,8 @@ let g:netrw_liststyle=3 "file browser uses tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 
 map <Leader>b :ls<CR>
+
+map <Leader>gs :Gstatus<CR>
+map <Leader>gc :Gcommit<CR>
 
 execute pathogen#infect()
