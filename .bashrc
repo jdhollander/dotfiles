@@ -24,12 +24,25 @@ function prompt_command {
 	else
 		LOAD_COLOUR='0;94m'
 	fi
+	HOST=$(uname -n)
+	if [ $HOST != 'arthur'  ]
+	then
+		HOST_COLOURBG='102m'
+		HOST_COLOURBG2='42m'
+		HOST_COLOURFG='92m'
+		HOST_COLOURFG2='32m'
+	else
+		HOST_COLOURBG='104m'
+		HOST_COLOURBG2='44m'
+		HOST_COLOURFG='94m'
+		HOST_COLOURFG2='34m';
+	fi
 }
 PROMPT_COMMAND=prompt_command
 if [[ ${EUID} == 0 ]] ; then
 	PS1=$'\n\[\e[$LOAD_COLOUR\e[101m\]\ue0b0\[\e[0;97m\e[101m\] \h \ue0b1 \u \[\e[91m\e[41m\]\ue0b0\[\e[1;97m\] \W \[\e[0;31m\e[100m\]\ue0b0\[\e[0;97m\e[100m\] \$ \[\e[90m\e[49m\]\ue0b0\[\e[0m\] '
 else
-	PS1=$'\n\[\e[$LOAD_COLOUR\e[104m\]\ue0b0\[\e[0;97m\e[104m\] \h \ue0b1 \u \[\e[94m\e[44m\]\ue0b0\[\e[1;97m\] \W \[\e[0;34m\e[100m\]\ue0b0\[\e[0;97m\e[100m\] \$ \[\e[90m\e[49m\]\ue0b0\[\e[0m\] '
+	PS1=$'\n\[\e[$LOAD_COLOUR\e[$HOST_COLOURBG\]\ue0b0\[\e[0;97m\e[$HOST_COLOURBG\] \h \ue0b1 \u \[\e[$HOST_COLOURFG\e[$HOST_COLOURBG2\]\ue0b0\[\e[1;97m\] \W \[\e[0;$HOST_COLOURFG2\e[100m\]\ue0b0\[\e[0;97m\e[100m\] \$ \[\e[90m\e[49m\]\ue0b0\[\e[0m\] '
 fi
 
 
