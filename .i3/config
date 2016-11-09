@@ -194,28 +194,14 @@ bindsym --whole-window $mod+button2 kill
 
 bindsym $mod+Escape exec ~/.i3/i3lock-custom
 
-exec --no-startup-id feh --bg-fill ~/bg --no-xinerama
-
-exec --no-startup-id compton --config .i3/compton.conf -b
-
-exec --no-startup-id yabar -c .i3/yabar.conf
-
-exec unclutter -root -visible
-
-exec dunst -config ~/.i3/dunstrc
-
 bindsym $mod+space exec rofi -show run -font "DejaVu Sans Mono 8" -opacity 85 -bw 5
 bindsym $mod+Tab exec rofi -show window -font "DejaVu Sans Mono 8" -opacity 85 -bw 5
 bindsym $mod+Shift+Tab exec ~/.i3/i3_switch_workspace.sh
 
 bindsym $mod+Shift+Escape exec ~/.i3/i3lock-custom && systemctl hybrid-sleep
 bindsym $mod+Alt+Escape exec ~/.i3/i3lock-custom && systemctl hibernate
-
-exec udiskie --tray
-exec dropbox
  
-exec --no-startup-id i3-msg 'workspace "7:111" output DVI-D-0; exec transmission-gtk&rm -f ~/.flexget/.config-lock&&sleep 10&&flexget -c ~/.flexget/config.yml daemon start -d;workspace "1:001" output HDMI-0;'
-exec lxsession
+#exec --no-startup-id i3-msg 'workspace "7:111" output DVI-D-0; exec transmission-gtk&rm -f ~/.flexget/.config-lock&&sleep 10&&flexget -c ~/.flexget/config.yml daemon start -d;workspace "1:001" output HDMI-0;'
 
 bindsym $mod+w exec firefox
 bindsym $mod+Shift+w exec firefox -private-window 
