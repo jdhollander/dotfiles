@@ -61,4 +61,4 @@ alias duh='du -h --max-depth=1'
 
 alias bedtime='~/.i3/i3lock-custom && systemctl hibernate'
 
-~/.bashrc_private
+source ~/.bashrc_private
