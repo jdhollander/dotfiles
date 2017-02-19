@@ -5,6 +5,8 @@
 !.vim/* 
 !.vimrc
 !_gvimrc
+# But do ignore bundle - they are installed with the plugin script
+.vim/bundle/*
 
 #Don't ignore basic settings
 !.bashrc
