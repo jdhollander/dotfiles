@@ -1,0 +1,22 @@
+#Ignore all
+*
+
+#Don't ignore vim things
+!.vim/* 
+!.vimrc
+!_gvimrc
+
+#Don't ignore basic settings
+!.bashrc
+!.Xresources
+!.Xprofile
+!.Xinitrc
+
+# Don't ignore wm stuff
+!.i3/*
+!.i3blocks/*
+
+# Don't ignore other stuff
+!.vimperatorrc
+!.ctags
+!README.md
