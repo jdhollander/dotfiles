@@ -53,7 +53,7 @@
 !*color15: #f8f8f8
 
 URxvt.depth: 32
-URxvt.background: [60]#000000
+URxvt.background: [80]#000000
 !URxvt.visualBell: true
 URxvt.scrollBar: false
 URxvt.secondaryScreen: 1
