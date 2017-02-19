@@ -45,9 +45,6 @@ else
 	PS1=$'\n\[\e[$LOAD_COLOUR\e[$HOST_COLOURBG\]\ue0b0\[\e[0;97m\e[$HOST_COLOURBG\] \h \ue0b1 \u \[\e[$HOST_COLOURFG\e[$HOST_COLOURBG2\]\ue0b0\[\e[1;97m\] \W \[\e[0;$HOST_COLOURFG2\e[100m\]\ue0b0\[\e[0;97m\e[100m\] \$ \[\e[90m\e[49m\]\ue0b0\[\e[0m\] '
 fi
 
-
-alias transmission='transmission-gtk& flexget -c ~/.flexget/config.yml daemon start -d&'
-
 please(){
 	sudo -- "${SHELL:-bash}" -c "$(fc -ln -1)"
 }
@@ -55,7 +52,7 @@ please(){
 export EDITOR=vim
 export SUDO_EDITOR=vim
 
-alias mpv-yt='mpv --ytdl-format "bestvideo[height=1080]+bestaudio/best+protocol!=http_dash_segments" --save-position-on-quit'
+alias mpv-yt='mpv --ytdl-format "bestvideo[height=1080]+bestaudio/best+protocol!=http_dash_segments" --save-position-on-quit' --cache-default=1024000
 
 alias cd..='cd ..'
 alias ..='cd ..'
@@ -64,4 +61,4 @@ alias duh='du -h --max-depth=1'
 
 alias bedtime='~/.i3/i3lock-custom && systemctl hibernate'
 
-alias sshlinode='ssh li272-49.members.linode.com'
+~/.bashrc_private
