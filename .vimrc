@@ -21,9 +21,6 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -108,7 +105,7 @@ set t_Co=16
 hi clear
 hi LineNr ctermfg=darkgrey
 
-
+" lightline config
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
@@ -136,6 +133,7 @@ function! LightLineFugitive()
   endif
   return ''
 endfunction
+" end lightline config
 
 set laststatus=2
 
@@ -145,11 +143,10 @@ autocmd FileType php setlocal errorformat=%f(line\ %l):\ %m
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 
-vnoremap <C-c> "*y
-
 filetype plugin on
 set sc
 
+" syntastic config
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -158,6 +155,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" end syntastic config
 
 let mapleader="\<Space>"
 
