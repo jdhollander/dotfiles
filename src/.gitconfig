@@ -1,0 +1,21 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Jonathan Hollander
+	email = jon@jhollander.me
+[rerere]
+	enabled = true
+[maintenance]
+	repo = /Users/jon/Xentrans/Dashboard
+[core]
+	fsmonitor = true
+	untrackedcache = true
+
+[includeIf "gitdir:~/Xentrans/"]
+	path = ~/Xentrans/.gitconfig
+
+[alias]
+	graph = log --all --online --graph --decorate

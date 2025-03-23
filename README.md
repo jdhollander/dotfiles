@@ -1,2 +1,2 @@
 # dotfiles
-Configuration Files and settings for my favourite applications
+Configuration Files and settings for terminal applications and development
