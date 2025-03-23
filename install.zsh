@@ -56,3 +56,9 @@ done;
 for dir in $(find ./src/.config -d 1); do
   createlink ${dir#./src/};
 done;
+
+# Install TPM for TMUX
+if [[ ! -e ~/.tmux/plugins/tpm ]] then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
