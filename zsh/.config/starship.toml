@@ -15,7 +15,7 @@ $custom\
 $command\
 $docker_context\
 $cmd_duration\
-$line_break\
+$line_break \
 $character"""
 
 add_newline = true

@@ -8,10 +8,7 @@
 	email = jon@jhollander.me
 [rerere]
 	enabled = true
-[maintenance]
-	repo = /Users/jon/Xentrans/Dashboard
 [core]
-	fsmonitor = true
 	untrackedcache = true
 
 [includeIf "gitdir:~/Xentrans/"]

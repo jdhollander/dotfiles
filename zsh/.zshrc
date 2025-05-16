@@ -1,8 +1,10 @@
 autoload -Uz compinit && compinit
 
+bindkey -v
+
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/jon/bin
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
 . "$HOME/.cargo/env"
@@ -38,4 +40,7 @@ if command -v most > /dev/null 2>&1; then
 fi
 
 alias duh='du -h -d=1'
+
+alias gg='git log --graph --decorate --all --oneline --color --abbrev-commit --date=relative'
+alias gs='git status --short --branch'
 

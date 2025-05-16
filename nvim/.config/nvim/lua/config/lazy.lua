@@ -41,6 +41,8 @@ vim.opt.splitbelow = true
 vim.opt.spell = true
 vim.opt.spelllang = { "en_gb" }
 
+vim.opt.conceallevel = 2
+
 local has_words_before = function()
   unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -74,7 +76,19 @@ require("lazy").setup({
           return " " .. icon .. count
         end,
         show_buffer_close_icons = false,
-        numbers = "buffer_id",
+        numbers = "ordinal",
+        separator_style = "slant",
+        indicator = {
+          style = "underline",
+        },
+        offsets = {
+          {
+            filetype = "NvimTree",
+            text = "File Explorer",
+            text_align = "center",
+            separator = true,
+          },
+        },
       },
     }, },
     { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" }, config = function() require('nvim-tree').setup({}) end,  },
@@ -223,24 +237,73 @@ require("lazy").setup({
           require("copilot_cmp").setup()
       end,
     },
-    { 'm4xshen/hardtime.nvim', dependencies = { "MunifTanjim/nui.nvim",}, config = function() require('hardtime').setup() end, },
+    -- { 'm4xshen/hardtime.nvim', dependencies = { "MunifTanjim/nui.nvim",}, config = function() require('hardtime').setup() end, },
+    {
+      "sphamba/smear-cursor.nvim",
+      opts = {
+        legacy_computing_symbols_support = true,
+      },
+      enabled = function()
+        if vim.g.neovide then
+          return false
+        else
+          return true
+        end
+      end
+    },
+    {
+      "startup-nvim/startup.nvim",
+      dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim" },
+      config = function()
+        require"startup".setup(require"config/startup")
+      end
+    },
+    {
+      'epwalsh/obsidian.nvim',
+      version = "*",
+      lazy = true,
+      ft = "markdown",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      opts = {
+        workspaces = {
+          {
+            name = "zk",
+            path = "~/zk",
+          },
+        },
+        mappings = {
+          ['gf'] = {
+            action = function()
+              return require('obsidian').util.gf_passthrough()
+            end,
+            opts = { buffer=true, expr=true, noremap=false },
+          },
+        },
+        picker = {
+          name = "telescope.nvim",
+        },
+      },
+    },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "tokyonight" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
 
-vim.cmd[[colorscheme tokyonight-storm]]
+vim.cmd[[colorscheme tokyonight]]
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>bb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set('n', '<leader>ft', require('nvim-tree.api').tree.focus, { desc = 'NvimTreeFocus' })
+vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Oldfiles' })
+vim.keymap.set("n", "<leader>fb", function() require("telescope").extensions.file_browser.file_browser() end)
+vim.keymap.set("n", "<leader>n", vim.cmd.bnext)
+vim.keymap.set("n", "gb", ':BufferLinePick<cr>', { desc = "BufferLinePick", noremap = true, silent = true})
 
 
 require('lualine').setup {
@@ -264,7 +327,18 @@ require('lualine').setup {
     }
   },
   sections = {
-    lualine_a = {'mode'},
+    lualine_a = {'mode',
+      { 'macro',
+        fmt = function()
+          local reg = vim.fn.reg_recording()
+          if reg ~= "" then
+            return "Recording @" .. reg
+          end
+          return nil
+        end,
+        draw_empty = false,
+      },
+    },
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
     lualine_d = { function() return require('auto-session.lib').current_session_name(true) end },
@@ -283,12 +357,9 @@ require('lualine').setup {
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = {}
+  extensions = {
+  }
 }
-
-vim.keymap.set("n", "<space>fb", function()
-	require("telescope").extensions.file_browser.file_browser()
-end)
 
 require('gitsigns').setup()
 
@@ -342,5 +413,9 @@ autocmd("BufWritePost", {
 
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
-
-
+if vim.g.neovide then
+  vim.o.guifont="JetBrainsMono NF:h12"
+  vim.g.neovide_opacity=0.95
+  vim.o.guicursor="n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:block-blinkon500-blinkoff500-TermCursor"
+  vim.g.neovide_cursor_smooth_blink=true
+end
