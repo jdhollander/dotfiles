@@ -42,4 +42,78 @@ return {
       },
     },
   },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      diagnostics = {
+        float = {
+          border = "rounded",
+        },
+      },
+    },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = function()
+      local keys = require("lazyvim.plugins.lsp.keymaps").get()
+      keys[#keys + 1] = {
+        "<leader>cn",
+        function()
+          vim.diagnostic.jump({ count = 1 })
+        end,
+        desc = "Next LSP Diagnostic",
+      }
+      keys[#keys + 1] = {
+        "<leader>cp",
+        function()
+          vim.diagnostic.jump({ count = -1 })
+        end,
+        desc = "Prev LSP Diagnostic",
+      }
+    end,
+  },
+  {
+    "saghen/blink.cmp",
+    opts = function(_, opts)
+      opts.completion = vim.tbl_deep_extend("force", opts.completion or {}, {
+        trigger = {
+          show_on_blocked_trigger_characters = {},
+        },
+        menu = {
+          border = "rounded",
+        },
+        documentation = {
+          window = {
+            border = "rounded",
+          },
+        },
+      })
+      opts.signature = vim.tbl_deep_extend("force", opts.signature or {}, {
+        window = {
+          border = "rounded",
+        },
+      })
+      opts.sources.providers = vim.tbl_deep_extend("force", opts.sources.providers or {}, {
+        copilot = {
+          override = {
+            get_trigger_characters = function(self)
+              local trigger_characters = self.get_trigger_characters()
+              vim.list_extend(trigger_characters, { "\n", "\t", " " })
+              return trigger_characters
+            end,
+          },
+        },
+        lsp = {
+          override = {
+            get_trigger_characters = function(self)
+              local trigger_characters = self.get_trigger_characters()
+              vim.list_extend(trigger_characters, { "\n", "\t", " " })
+              return trigger_characters
+            end,
+          },
+        },
+      })
+      return opts
+    end,
+  },
 }
